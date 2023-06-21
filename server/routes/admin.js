@@ -22,4 +22,21 @@ router.get('/admin', async (req, res) => {
     }
 });
 
+/* 
+POST
+Admin - Check Login
+*/
+router.post('/admin', async (req, res) => {
+    try {
+        const { username, password } = req.body;
+        if (req.body.username === 'admin' && req.body.password === 'password') {
+            res.send('You are logged in.')
+        } else {
+            res.send('Wrong username or password');
+        }
+    } catch (error) {
+        console.log(error);
+    }
+});
+
 module.exports = router;
